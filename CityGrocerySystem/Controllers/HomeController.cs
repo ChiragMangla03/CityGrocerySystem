@@ -28,7 +28,7 @@ namespace CityGrocerySystem.Controllers
 
         [HttpPost]
         public IActionResult Login(LoginDetails login)
-        {
+        {  
             int user_type = MdataDetail.CheckValidUser(login);
             if (user_type == 1)
             {
