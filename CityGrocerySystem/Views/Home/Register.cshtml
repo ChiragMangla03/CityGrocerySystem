@@ -1,0 +1,87 @@
+﻿@model CGS.Model.RegistrationDetails
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+    <h2 style="text-align:center">Modal Login Form</h2>
+    <div class="row">
+        <div class="col-sm pt-4">
+            <img src="~/Images/Banner.jpg" class="img-fluid banner">
+        </div>
+        <div class="col">
+            @*<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>*@
+            @*<form class="modal-content animate" id="Register" method="post" action="/Home/Register">*@
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data",@class="modal-content animate" })) {
+                <div class="container">
+                    <div>
+                        <img src="~/Images/Logo.png" style="text-align:center" class="img-fluid pl-5">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Html.LabelFor(a => a.first_name, "First Name")
+                            @Html.TextBoxFor(a => a.first_name, new { @placeholder = "Enter First Name" })
+                            @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col">
+                            @Html.LabelFor(a => a.last_name, "Last Name")
+                            @Html.TextBoxFor(a => a.last_name, new { @placeholder = "Enter Last Name" })
+                            @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Html.LabelFor(a => a.user_name, "UserName")
+                            @Html.TextBoxFor(a => a.user_name, new { @placeholder = "Enter User Name" })
+                            @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Html.LabelFor(a => a.password, "Password")
+                            @Html.TextBoxFor(a => a.password, new { @placeholder = "Enter Password", @type = "password" })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Html.LabelFor(a => a.phone_no, "Mobile Number")
+                            @Html.TextBoxFor(a => a.phone_no, new { @type = "number", @class = "form-control", min = "0", required = "required" })
+                        </div>
+                        <div class="col">
+                            @Html.LabelFor(a => a.alternate_phone_no, "Alt. Mob. Number")
+                            @Html.TextBoxFor(a => a.alternate_phone_no, new { @placeholder = "Alternate Mobile No." })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Html.LabelFor(a => a.email_id, "EmailID")
+                            @Html.TextBoxFor(a => a.email_id, new { @placeholder = "Enter Email ID" })
+                            @Html.ValidationMessageFor(model => model.email_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Html.LabelFor(a => a.address, "Address")
+                            @Html.TextBoxFor(a => a.address, new { @placeholder = "Enter Full Address" })
+                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @*<button onclick="Submit()">Create</button>*@
+                    <button type="Submit">Create</button>
+                </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <span class="NewUser"><a href="/Home/Index">LogIn</a></span>
+                <span class="psw">Forgot <a href="/Home/ForgotPassword">password?</a></span>
+            </div>
+            }
+            @*</form>*@
+        </div>
+    </div>
+</body>
+</html>

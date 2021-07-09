@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CityGroceryStstem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/Style.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/datatables.min.css" />
+
+    <script src="~/js/AdminDashboard.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <aside>
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    @*<h3>City Grocery System</h3>*@
+                    <img src="~/Images/Logo.png" style="display: block; max-width: 100%; max-height: 100%;">
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Customer Dashboard</p>
+                    <li class="active">
+                        <a href="/Customer/Index" data-toggle="collapse" aria-expanded="false">Home</a>
+                    </li>
+                    <li>
+                        <a href="/Customer/CategoryMaster">Category Details</a>
+                    </li>
+                    <li>
+                        <a href="/Customer/GetProductData">Product Details</a>
+                    </li>
+                    <li>
+                        <a href="/Admin/GetUserData" data-toggle="collapse" aria-expanded="false">Users Details</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Logout">LogOut</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="container pl-1 pt-5">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/datatables.min.js"></script>
+</body>
+</html>

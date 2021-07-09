@@ -1,0 +1,41 @@
+﻿@model CGS.Model.TilesData
+@{
+    Layout = "Customer_Dashboard";
+}
+
+<div class="row">
+    <div class="col-5 cardbody blueCol border ">
+        <div class="tile-label">
+            Total Users
+        </div>
+        <div class="tile-data">
+            @Model.total_users.ToString()
+        </div>
+    </div>
+    <div class="col-5 cardbody border ml-5 purple">
+        <div class="tile-label">
+            Total categories
+        </div>
+        <div class="tile-data">
+            @Model.total_categories.ToString()
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-5 cardbody border green">
+        <div class="tile-label">
+            Total Number of Orders
+        </div>
+        <div class="tile-data">
+            @Model.total_carts.ToString()
+        </div>
+    </div>
+    <div class="col-5 cardbody border ml-5 yellow">
+        <div class="tile-label">
+            Total Products
+        </div>
+        <div class="tile-data">
+            @Model.total_products.ToString()
+        </div>
+    </div>
+</div>

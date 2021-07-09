@@ -1,0 +1,44 @@
+﻿@model CGS.Model.LoginDetails
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-image: url(../Images/Backgorund_Image.jpg) !important;">
+    <h2 style="text-align:center">Modal Login Form</h2>
+    <div class="row">
+        <div class="col-sm pt-4">
+            <img src="~/Images/Banner.jpg" class="img-fluid banner">
+        </div>
+        <div class="col">
+            @*<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>*@
+            <form class="modal-content animate" action="/Home/Login" method="post">
+                <div class="container">
+                    <div>
+                        <img src="~/Images/Logo.png" style="text-align:center" class="img-fluid pl-5">
+                    </div>
+                    @Html.LabelFor(a => a.user_name, "UserName")
+                    @Html.TextBoxFor(a => a.user_name, new { @placeholder = "Enter User Name" })
+
+                    @Html.LabelFor(a => a.password, "Password")
+                    @Html.TextBoxFor(a => a.password, new { @placeholder = "Enter Password", @type = "password" })
+
+                    <button type="submit">Login</button>
+                    @*<label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>*@
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <span class="NewUser">New User? <a href="/Home/Register">Register Here</a></span>
+                    <span class="psw">Forgot <a href="/Home/ForgotPassword">password?</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
